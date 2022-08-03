@@ -1,8 +1,20 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { setupSwagger } from './util/swagger';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  const configService = app.get(ConfigService);
+  const NOTIFICATION_HOST = configService.get<string>('NOTIFICATION_HOST');
+  const NOTIFICATION_PORT = configService.get<number>('NOTIFICATION_PORT');
+
+  setupSwagger(app);
+
+  await app.listen(10000, () => {
+    console.log(
+      `NOTIFICATION MS -> HOST : ${NOTIFICATION_HOST}, PORT : ${NOTIFICATION_PORT}`,
+    );
+  });
 }
 bootstrap();
