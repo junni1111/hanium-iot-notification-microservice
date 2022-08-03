@@ -11,7 +11,7 @@ async function bootstrap() {
 
   setupSwagger(app);
 
-  await app.listen(10000, () => {
+  await app.listen(NOTIFICATION_PORT, () => {
     console.log(
       `NOTIFICATION MS -> HOST : ${NOTIFICATION_HOST}, PORT : ${NOTIFICATION_PORT}`,
     );
