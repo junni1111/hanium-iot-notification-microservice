@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataBaseConfigModule } from './config/database/database.module';
 import { DataBaseConfigService } from './config/database/database.service';
+import { NotificationModule } from './notification/notification.module';
+import { HealthController } from './health.controller';
 
 @Module({
   imports: [
@@ -17,8 +17,9 @@ import { DataBaseConfigService } from './config/database/database.service';
       useClass: DataBaseConfigService,
       inject: [DataBaseConfigService],
     }),
+    NotificationModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [HealthController],
+  providers: [],
 })
 export class AppModule {}
