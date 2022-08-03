@@ -1,3 +1,3 @@
 export const UTILITY = 'utility';
-export const NOTIFICATION = 'notification';
-export const USER = 'user';
+export const EMAIL = 'email';
+export const KAKAO = 'kakao';
