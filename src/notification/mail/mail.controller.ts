@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { EMAIL } from '../../util/constants/swagger';
+import { MAIL } from '../../util/constants/swagger';
 
-@ApiTags(EMAIL)
+@ApiTags(MAIL)
 @Controller()
-export class EmailController {}
+export class MailController {}

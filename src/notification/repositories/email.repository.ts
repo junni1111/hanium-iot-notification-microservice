@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from 'typeorm';
-import { Email } from '../email/entities/email.entity';
+import { Mail } from '../mail/entities/mail.entity';
 
-@EntityRepository(Email)
-export class EmailRepository extends Repository<Email> {}
+@EntityRepository(Mail)
+export class EmailRepository extends Repository<Mail> {}

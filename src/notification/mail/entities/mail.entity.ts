@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('email-logs')
-export class Email {
+@Entity('mail_logs')
+export class Mail {
   @PrimaryGeneratedColumn({ type: 'integer', name: 'id' })
   id: number;
 }
