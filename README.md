@@ -40,7 +40,7 @@
 
 ### Install packages
 
-<pre>npm install</pre>
+<pre>npm install --force</pre>
 
 ### Start Database
 
