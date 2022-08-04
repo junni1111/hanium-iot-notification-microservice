@@ -9,15 +9,12 @@ export class TelegramController {
   constructor(private readonly telegramService: TelegramService) {}
 
   @Get()
-  async sendTelegramMessage(
-    @Query('chat_id') chat_id: number,
+  async sendMessage(
+    @Query('chat_id') chatId: number,
     @Query('text') text: string,
   ) {
-    console.log(`chat_id : ${chat_id}, text : ${text}`);
-    const { data } = await this.telegramService.sendTelegramMessage(
-      chat_id,
-      text,
-    );
-    return data;
+    console.log(`chat_id : ${chatId}, text : ${text}`);
+    const result = await this.telegramService.sendMessage(chatId, text);
+    return result;
   }
 }
