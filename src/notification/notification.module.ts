@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { NotificationController } from './notification.controller';
-import { MailController } from './mail/mail.controller';
-import { KakaoController } from './kakao/kakao.controller';
-import { MailService } from './mail/mail.service';
-import { KakaoService } from './kakao/kakao.service';
+import { MailModule } from './mail/mail.module';
+import { KakaoModule } from './kakao/kakao.module';
+import { TelegramModule } from './telegram/telegram.module';
 
 @Module({
-  controllers: [NotificationController, MailController, KakaoController],
-  providers: [MailService, KakaoService],
+  imports: [MailModule, KakaoModule, TelegramModule],
+  controllers: [NotificationController],
 })
 export class NotificationModule {}
