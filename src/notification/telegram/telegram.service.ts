@@ -1,8 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
-import { lastValueFrom } from 'rxjs';
 import { ConfigService } from '@nestjs/config';
 import { Telegraf } from 'telegraf';
+import { SendMessageDto } from './dto/send-message.dto';
 
 @Injectable()
 export class TelegramService implements OnModuleInit {
@@ -11,8 +10,11 @@ export class TelegramService implements OnModuleInit {
     this.configService.get<string>('TELEGRAM_BOT_TOKEN'),
   );
 
-  async sendMessage(chatId: number, text: string) {
-    return this.bot.telegram.sendMessage(chatId, text);
+  async sendMessage(sendMessageDto: SendMessageDto) {
+    return this.bot.telegram.sendMessage(
+      sendMessageDto.chatId,
+      sendMessageDto.text,
+    );
   }
 
   onModuleInit() {
