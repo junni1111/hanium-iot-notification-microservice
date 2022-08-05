@@ -11,7 +11,7 @@ export class TelegramService implements OnModuleInit {
   );
 
   async sendMessage(sendMessageDto: SendMessageDto) {
-    return this.bot.telegram.sendMessage(
+    return await this.bot.telegram.sendMessage(
       sendMessageDto.chatId,
       sendMessageDto.text,
     );
