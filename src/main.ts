@@ -7,7 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   const NOTIFICATION_HOST = configService.get<string>('NOTIFICATION_HOST');
-  const NOTIFICATION_PORT = configService.get<number>('NOTIFICATION_PORT');
+  const NOTIFICATION_PORT = configService.get<number>(
+    'NOTIFICATION_PORT_10000_TCP_PORT',
+    10000,
+  );
 
   setupSwagger(app);
 
