@@ -11,4 +11,11 @@ export class HealthController {
 
     return res.status(HttpStatus.OK).send('ok');
   }
+
+  @Get('ping')
+  async pingToNotificationMicroservice() {
+    console.log(`Ping from api gateway`);
+
+    return 'notification-pong';
+  }
 }
