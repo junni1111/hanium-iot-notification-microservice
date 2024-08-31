@@ -32,7 +32,7 @@
 
 ### Download from repository
 
-<pre>git clone https://github.com/KGESH/hanium-iot-notification-microservice.git</pre>
+<pre>git clone https://github.com/junni1111/hanium-iot-notification-microservice.git</pre>
 
 ### Go to download path
 
